@@ -14,6 +14,16 @@ async fn main() -> io::Result<()> {
 
     log::info!("starting HTTP server at http://localhost:8080");
 
+    let data1 = data.clone();
+    actix_web::rt::spawn(async move {
+        loop {
+            std::thread::sleep(std::time::Duration::from_millis(200));
+            let now = std::time::Instant::now();
+            let msg = format!("{:?}", now);
+            data1.broadcast(&msg).await;
+        }
+    });
+
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::from(Arc::clone(&data)))
