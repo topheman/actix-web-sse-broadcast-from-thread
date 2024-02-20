@@ -1,7 +1,5 @@
 use std::{io, sync::Arc};
-use std::sync::{
-    atomic::{AtomicBool, Ordering},
-};
+use std::sync::atomic::{AtomicBool, Ordering};
 
 use actix_web::{get, middleware::Logger, post, web, App, HttpResponse, HttpServer, Responder};
 use actix_web_lab::{extract::Path, respond::Html};
