@@ -1,5 +1,5 @@
 [package]
-name = "rust-sse-poc"
+name = "actix-web-sse-broadcast-from-thread"
 version = "0.1.0"
 edition = "2021"
 
